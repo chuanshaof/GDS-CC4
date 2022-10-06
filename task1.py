@@ -7,9 +7,6 @@ def main():
     sys.stdin.reconfigure(encoding='utf-8')
     sys.stdout.reconfigure(encoding='utf-8')
 
-    # Change url here to what is necessary
-    url = "https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json"
-
     # Reading csvfile using pandas and converting it into a dictionary
     # Format will be {country_code: country_name}
     countries = {}
@@ -17,18 +14,23 @@ def main():
     for i in countryDf.index:
         countries[countryDf["Country Code"][i]] = countryDf["Country"][i]
 
+    # ----------------- Reading JSON file -----------------
+    # Change url here to what is necessary
+    url = "https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json"
+    
     # # https://pythonbasics.org/pandas-json/
-    # # Reading json file using pandas
+    # # 1. Reading json file using pandas
     # df = pd.read_json(url)
     # rawData = df.to_dict()
 
-    # Read JSON file from local file directory
-    with open("restaurant_data.json", "r", encoding='utf-8') as f:
-        rawData = json.load(f)
+    # # 2. Read JSON file from local file directory
+    # with open("restaurant_data_bugged.json", "r", encoding='utf-8') as f:
+    #     rawData = json.load(f)
     
-    # # https://www.geeksforgeeks.org/how-to-read-a-json-response-from-a-link-in-python/
-    # with urlopen(url) as response:
-    #     rawData = json.loads(response.read().decode("utf-8"))
+    # 3. Read JSON file from url
+    # https://www.geeksforgeeks.org/how-to-read-a-json-response-from-a-link-in-python/
+    with urlopen(url) as response:
+        rawData = json.loads(response.read().decode("utf-8"))
         
     restaurants = []
     # Loading the data as rows
@@ -50,7 +52,6 @@ def main():
 
     restaurantsDf = pd.DataFrame(restaurants, columns=["res_id", "name", "country", "city", "votes", "rating", "cuisines"])
     restaurantsDf.replace("", "NA", inplace=True)
-
     restaurantsDf.to_csv("task1.csv", index=False)
 
     # # https://docs.python.org/3/library/csv.html

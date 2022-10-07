@@ -30,6 +30,9 @@ Skvělé, Muito Bom, Velmi dobré, Eccellente, Bardzo dobrze, Skvělá volba, Bu
 
 We do not need to consider other factors and just bring in any data that is filled.
 
+Output will be as such:
+    Rating: Score (Rounded to 1 decimal place)
+
 If the translated text does not match the original expected text, then we will ignore the rating as translations can be sensitive and may actually mean other things.
 
 Things to consider for this, if one data is missing, e.g. text or rating, then the data cannot be used as it should come as a pair.

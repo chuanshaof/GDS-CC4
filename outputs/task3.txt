@@ -1,0 +1,5 @@
+Excellent: 4.7
+Very Good: 4.2
+Good: 3.8
+Average: 3.2
+Poor: 2.2

@@ -1,4 +1,27 @@
-"# GDS-CC4" 
+# GDS-CC4
+GovTech Internship 2023, GDS-CC4 submission
+
+# Setup and running of tasks
+
+## Initial set up instructions
+Move to the parent directory and install all Python dependencies with `pip3 install -r requirements.txt`
+
+## Running tasks
+From the parent directory, move to the tasks directory with `cd tasks`.
+Run tasks using the command of `python task#.py`, filling up "#" with the desired task (1-3)
+e.g. `python task1.py` will run task 1
+
+Alternatively, you can run this with any code editors using the "Run" button, or its equivalent.
+
+## Running of tests
+Similar to running tasks, however, move to the tests directory with `cd tests` followed by `python test#.py`
+
+# Assumptions made and comments on data
+## Task 1
+### Assumptions:
+
+
+
 
 # Task 1
 Assumptions:

@@ -1,4 +1,4 @@
-RRestaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rating (in float),Cuisines
+Restaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rating (in float),Cuisines
 18649486,The Drunken Botanist,India,Gurgaon,4765,4.4,"Continental, Italian, North Indian, Chinese"
 308322,Hauz Khas Social,India,New Delhi,13627,4.6,"Continental, American, Asian, North Indian, Chinese, Pizza, Biryani, Beverages"
 18856789,AIR- An Ivory Region,India,New Delhi,1819,4.1,"North Indian, Chinese, Continental, Asian"
@@ -1139,26 +1139,6 @@ RRestaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rat
 7101483,Burger Liquor,New Zealand,Wellington City,185,4.4,American
 7100178,Monsoon Poon,New Zealand,Wellington City,205,4.3,Asian
 7100865,Shed 5,New Zealand,Wellington City,139,4.5,"European, Pacific"
-7210754,The Golconda Bowl,NA,Dummy,0,0.0,"North Indian, Mughlai"
-7204069,California Cantina,NA,Dummy,0,0.0,"Burger, Fast Food, Mexican, American, Pizza"
-7200516,Bardelli's,NA,Dummy,0,0.0,South Indian
-18133267,Baton Rouge,NA,Dummy,0,0.0,Steak
-7204711,Dunkin Donuts,NA,Dummy,0,0.0,"Fast Food, Desserts"
-7204029,L'Opera,NA,Dummy,0,0.0,Bakery
-5,Yoko Sizzlers,NA,Dummy,0,0.0,Japanese
-7200182,Kauai,NA,Dummy,0,0.0,Healthy Food
-7204328,Mcdonalds,NA,Dummy,0,0.0,"Italian, North Indian"
-3,Cafe Mangii,NA,Dummy,0,0.0,"Italian, European, Bakery"
-2,PHD,NA,Dummy,0,0.0,"Fast Food, Biryani"
-10,Hotel Sai Palace Garden,NA,Dummy,0,0.0,"North Indian, Chinese, South Indian"
-7204068,La Pescadería de Walker,NA,Dummy,0,0.0,Seafood
-7204327,Lane Cuisine Turc - Zorlu Alışveriş Merkezi,NA,Dummy,0,0.0,Turkish
-7204032,4700 BC Popcorn,NA,Dummy,0,0.0,Desserts
-7206255,Indian Zaik,NA,Dummy,0,0.0,"Fast Food, Indian"
-7209209,Arabic Nights,NA,Dummy,0,0.0,"Turkish, Mediterranean"
-15557859,Domino's Pizza,NA,Dummy,0,0.0,"Pizza, Fast Food"
-15561694,Geometrico,NA,Dummy,0,0.0,Others
-15561685,El Patio,NA,Dummy,0,0.0,Healthy Food
 7302200,Mamma Jamma,Brazil,Rio de Janeiro,12,4.5,Pizza
 7303710,Paris 6,Brazil,Rio de Janeiro,28,4.4,French
 7302898,Aprazível,Brazil,Rio de Janeiro,63,4.9,Brazilian

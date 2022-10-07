@@ -16,25 +16,28 @@ def main() -> dict:
             userRatingText = restaurant.get("user_rating", {}).get("rating_text", "")
             userRating = restaurant.get("user_rating", {}).get("aggregate_rating", "")
 
+            if userRatingText == "" or userRating == "":
+                continue
+
             if userRatingText in ratings:
                 ratings[userRatingText][0] = ratings[userRatingText][0] + float(userRating)
                 ratings[userRatingText][1] = ratings[userRatingText][1] + 1
 
-            # NOTE: Remove this if language translation is not desired
-            # Adding such that this does not get translated, runs faster
-            elif userRatingText == "Not rated":
-                continue 
-            else:
-                # https://www.thepythoncode.com/article/translate-text-in-python
-                translator = Translator()
-                userRatingText = translator.translate(userRatingText, dest="en").text
+            # # NOTE: Add this if language translation is desired
+            # # Adding such that this does not get translated, runs faster
+            # elif userRatingText == "Not rated":
+            #     continue 
+            # else:
+            #     # https://www.thepythoncode.com/article/translate-text-in-python
+            #     translator = Translator()
+            #     userRatingText = translator.translate(userRatingText, dest="en").text
 
-                # https://www.programiz.com/python-programming/methods/string/casefold
-                for key in ratings.keys():
-                    if userRatingText.casefold() == key.casefold():
-                        ratings[key][0] = ratings[key][0] + float(userRating)
-                        ratings[key][1] = ratings[key][1] + 1
-                        break
+            #     # https://www.programiz.com/python-programming/methods/string/casefold
+            #     for key in ratings.keys():
+            #         if userRatingText.casefold() == key.casefold():
+            #             ratings[key][0] = ratings[key][0] + float(userRating)
+            #             ratings[key][1] = ratings[key][1] + 1
+            #             break
     
     for key in ratings.keys():
         ratings[key] = ratings[key][0] / ratings[key][1]

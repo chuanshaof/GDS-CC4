@@ -16,51 +16,42 @@ Alternatively, you can run this with any code editors using the "Run" button, or
 ## Running of tests
 Similar to running tasks, however, move to the tests directory with `cd tests` followed by `python test#.py`
 
-# Assumptions made and comments on data
-## Task 1
-### Assumptions:
+# Assumptions made, comments on data, and overview of code
+## Assumptions made
+1. (Task 1) Invalid Country-Code is regarded as missing data and is populated as NA
+2. Missing data keys are replaced with "NA" instead of discarding the entire row
+3. Leading and trailing whitespaces is to be removed
+4. JSON data will always have the same structure and will have the same keys for a particular value
+5. (Task 2) The duration of the event in April 2019 does not matter, as long as it has occurred for at least a second in April 2019.
+6. (Task 3) Only exact matches in `rating_text` shall be considered.
 
+## Comments on data
+1. Some of the data may have special characters that can not be read by Python by default. To fix, encoding to 'utf-8' is required.
+2. (Task 1) Strange data for all `country_id` of 17, where the city is dummy and the ratings are 0. To remove the data, uncomment line 28.
+3. (Task 2) There may be more than 1 event photos, so they are populated in a list of photos.
+4. (Task 3) Some of the `rating_text` are in another language other than English. However, translating these data may result in it becoming valid. To include these data, uncomment lines 26 to 40.
 
+## Code
+### Task 1
+Task 1 simply reads through a JSON file and navigating through it using the appropriate list traversal and dictionary keys. The below demonstrates the methods and reasoning behind the design of the code.
+1. Pandas is used for easy `.csv` and `.xlsx` management.
+2. `.get` method is used for missing data keys as per stated in assumption 2.
 
+### Task 2
+Task 2 is similar to task 1 in getting the necessary information. However, it includes a condition to ensure that event is in April 2019.\
+As per the condition, there are 3 particular cases where the event will happen on April 2019.\
+1. If the start date is in April 2019
+2. If the end date is in April 2019
+3. If the event starts BEFORE April 2019 AND ends AFTER April 2019
 
-# Task 1
-Assumptions:
-    1. 
+### Task 3
+Task 3 can have multiple approaches to calculating the threshold for the various ratings. The approach taken in the code is to simply pair the `rating_text` and the average corresponding `rating_score`. Other approaches may include machine learning.\
+</br>
+Additionally, there seems to be different languages for `rating_text`, which makes it difficult to translate. However, these texts when translated might give the expected keys for the various ratings. By assumption 6, these ratings are not considered even if the translation gives the expected results. \
+However, as per comment 4, the consideration has also been coded in and will need to be uncommented to include these ratings. \
+</br>
+The output of this task will be printed on the terminal, otherwise the `main()` function will return the dictionary of the data.\
+For the output printed on the terminal, the score will be rounded to 1 decimal place. 
 
-Comments on data:
-    1. There are some issues with a country_id of 17, where the city is dummy and the ratings are 0. Strange data that might want to be removed.
-
-Testing:
-    1. restaurant_data_edited is a downloaded JSON file with a mising key in the dictionary for "city". This is to ensure that files will be able to be read even if some data is missing. These data are then later filled with NA if they are missing.
-    2. 
-
-# Task 2
-ACCEPTED EVENTS:
-    1. If start/end dates are in the month of April
-    2. If event starts before the 1st of April AND ends after the 1st of April
-
-Assumptions:
-    1. All inputted items from the JSON file is copied exactly and nothing is changed.
-    2. There are multiple pictures from a single event that is presented as a list.
-    3. Even if the event was a second in the month of April 2019, it will be in the list.
-    
-# Task 3
-Task 3 is simple, but challenging. After a quick scan of the system, there appears to be different languages for rating_text, which makes it difficult to translate in a general form. 
-
-A simple way to find the aggregate is simply to pair the rating text and average rating score.
-
-Skvělé, Muito Bom, Velmi dobré, Eccellente, Bardzo dobrze, Skvělá volba, Bueno, Excelente, Muy Bueno, Terbaik
-
-We do not need to consider other factors and just bring in any data that is filled.
-
-Output will be as such:
-    Rating: Score (Rounded to 1 decimal place)
-
-If the translated text does not match the original expected text, then we will ignore the rating as translations can be sensitive and may actually mean other things.
-
-Things to consider for this, if one data is missing, e.g. text or rating, then the data cannot be used as it should come as a pair.
-
-3 possible solutions:
-    1. Create a dictionary of translations if possible, but will not be entirely exhausive
-    2. Use an external library/API to translate
-    3. Any rating not in English will be classified as "Good", which is the middle rating, but not ideal as it is expected to cause skews
+### Test 1
+1. restaurant_data_edited is a downloaded JSON file with a mising key in the dictionary for "city". This is to ensure that files will be able to be read even if some data is missing. These data are then later filled with NA if they are missing.

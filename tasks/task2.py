@@ -49,7 +49,7 @@ def main():
 
     eventsDf = pd.DataFrame(events, columns=["event_id", "res_id", "res_name", "photos", "event_title", "start_date", "end_date"])
     eventsDf.replace("", "NA", inplace=True)
-    eventsDf.to_csv("outputs/task2.csv", index=False)
+    eventsDf.to_csv("outputs/restaurant_events.csv", index=False)
 
 if __name__ == "__main__":
     main()

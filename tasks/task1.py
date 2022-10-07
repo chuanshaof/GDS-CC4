@@ -24,6 +24,8 @@ def main():
             id = restaurant.get("R", {}).get("res_id", "")
             name = restaurant.get("name", "").strip()
             country = countries.get(restaurant.get("location", {}).get("country_id", ""), "").strip()
+            # Uncomment elow to remove empty/invalid country codes
+            # if country == "": continue
             city = restaurant.get("location", {}).get("city", "").strip()
             userRatingVotes = restaurant.get("user_rating", {}).get("votes", "")
             userRating = float(restaurant.get("user_rating", {}).get("aggregate_rating", ""))
@@ -37,7 +39,7 @@ def main():
 
     # .replace is used to replace empty strings, it may be the case where the input was "" in the first place.
     restaurantsDf.replace("", "NA", inplace=True)
-    restaurantsDf.to_csv("outputs/task1.csv", index=False) 
+    restaurantsDf.to_csv("outputs/restaurants.csv", index=False) 
 
 if __name__ == "__main__":
     main()

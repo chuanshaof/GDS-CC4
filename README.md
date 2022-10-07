@@ -7,8 +7,8 @@ GovTech Internship 2023, GDS-CC4 submission
 Move to the parent directory and install all Python dependencies with `pip3 install -r requirements.txt`
 
 ## Running tasks
-From the parent directory, move to the tasks directory with `cd tasks`.
-Run tasks using the command of `python task#.py`, filling up "#" with the desired task (1-3)
+From the parent directory, move to the tasks directory with `cd tasks`. \
+Run tasks using the command of `python task#.py`, filling up "#" with the desired task (1-3) \
 e.g. `python task1.py` will run task 1
 
 Alternatively, you can run this with any code editors using the "Run" button, or its equivalent.

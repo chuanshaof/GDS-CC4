@@ -1,12 +1,9 @@
 import utils
 from googletrans import Translator
 
-def main() -> dict:
+def main(rawData) -> dict:
     # Content of ratings will initially be {"rating_text": [rating_sum, rating_count]}
     ratings = {"Excellent": [0, 0], "Very Good": [0, 0], "Good": [0, 0], "Average": [0, 0], "Poor": [0, 0]}
-
-    # Reading data from URL
-    rawData = utils.getJsonURL(utils.url)
 
     # Loading the data as rows
     for data in rawData:
@@ -40,12 +37,17 @@ def main() -> dict:
             #             break
     
     for key in ratings.keys():
-        ratings[key] = ratings[key][0] / ratings[key][1]
+        if ratings[key][1] == 0:
+            ratings[key] = 0
+        else:
+            ratings[key] = ratings[key][0] / ratings[key][1]
 
     return ratings
 
 if __name__ == "__main__":
-    ratings = main()
+    # Reading data from URL
+    rawData = utils.getJsonURL(utils.url)
+    ratings = main(rawData)
 
     with open("outputs/task3.txt", "w") as f:
         for key, value in ratings.items():

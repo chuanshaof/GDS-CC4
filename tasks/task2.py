@@ -1,13 +1,10 @@
 import pandas as pd
 import datetime, utils
 
-def main():
+def main(rawData) -> None:
     # datetime object to format and compare dates
     # https://www.geeksforgeeks.org/converting-string-yyyy-mm-dd-into-datetime-in-python/
     dateTimeFormat = "%Y-%m-%d"
-
-    # Reading data from URL
-    rawData = utils.getJsonURL(utils.url)
 
     events = []
     for data in rawData:
@@ -35,14 +32,7 @@ def main():
                 dtEventStart = datetime.datetime.strptime(eventStart, dateTimeFormat)
                 dtEventEnd = datetime.datetime.strptime(eventEnd, dateTimeFormat)
 
-                apr1 = datetime.datetime(2019, 4, 1)
-                apr30 = datetime.datetime(2019, 4, 30)
-
-                if dtEventStart >= apr1 and dtEventStart <= apr30:
-                    events.append([restaurantId, restaurantName, eventId, eventTitle, eventStart, eventEnd, photoURLList])
-                elif dtEventEnd >= apr1 and dtEventEnd <= apr30:
-                    events.append([restaurantId, restaurantName, eventId, eventTitle, eventStart, eventEnd, photoURLList])
-                elif dtEventStart <= apr1 and dtEventEnd >= apr30:
+                if in_april_2019(dtEventStart, dtEventEnd):
                     events.append([restaurantId, restaurantName, eventId, eventTitle, eventStart, eventEnd, photoURLList])
                 else:
                     continue
@@ -51,5 +41,21 @@ def main():
     eventsDf.replace("", "NA", inplace=True)
     eventsDf.to_csv("outputs/restaurant_events.csv", index=False)
 
+def in_april_2019(startDate: datetime, endDate: datetime) -> bool:
+    apr1 = datetime.datetime(2019, 4, 1)
+    apr30 = datetime.datetime(2019, 4, 30)
+
+    if startDate >= apr1 and startDate <= apr30:
+        return True
+    elif endDate >= apr1 and endDate <= apr30:
+        return True
+    elif startDate <= apr1 and endDate >= apr30:
+        return True
+    else:
+        return False
+
+
 if __name__ == "__main__":
-    main()
+    # Reading data from URL
+    rawData = utils.getJsonURL(utils.url)
+    main(rawData)

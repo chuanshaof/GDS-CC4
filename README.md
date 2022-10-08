@@ -1,22 +1,22 @@
 # GDS-CC4
-GovTech Internship 2023, GDS-CC4 submission
+GovTech Internship 2023, GDS-CC4 submission, FOO CHUAN SHAO
 
 # Setup and running of tasks
 
 ## Initial set up instructions
-Move to the parent directory and install all Python dependencies with `pip3 install -r requirements.txt`
+Move to the parent directory and install all Python dependencies with `pip3 install -r requirements.txt`.
 
 ## Running tasks
 From the parent directory, move to the tasks directory with `cd tasks`. \
 Run tasks using the command of `python task#.py`, filling up "#" with the desired task (1-3) \
-e.g. `python task1.py` will run task 1
+(e.g. `python task1.py` will run task 1)
 
 Alternatively, you can run this with any code editors using the "Run" button, or its equivalent.
 
 ## Running of tests
 Similar to running tasks, however, move to the tests directory with `cd tests` followed by `python test#.py`
 
-# Assumptions made, comments on data, and overview of code
+# Assumptions, comments on data, and overview of code
 ## Assumptions made
 1. (Task 1) Invalid Country-Code is regarded as missing data and is populated as NA
 2. Missing data keys are replaced with "NA" instead of discarding the entire row
@@ -55,3 +55,5 @@ For the output printed on the terminal, the score will be rounded to 1 decimal p
 
 ### Test 1
 1. restaurant_data_edited is a downloaded JSON file with a mising key in the dictionary for "city". This is to ensure that files will be able to be read even if some data is missing. These data are then later filled with NA if they are missing.
+
+`python -m unittest tests.test1`

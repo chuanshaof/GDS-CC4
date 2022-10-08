@@ -1,5 +1,5 @@
 Restaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rating (in float),Cuisines
-18649486,The Drunken Botanist,India,Gurgaon,4765,4.4,"Continental, Italian, North Indian, Chinese"
+18649486,The Drunken Botanist,India,NA,4765,4.4,"Continental, Italian, North Indian, Chinese"
 308322,Hauz Khas Social,India,New Delhi,13627,4.6,"Continental, American, Asian, North Indian, Chinese, Pizza, Biryani, Beverages"
 18856789,AIR- An Ivory Region,India,New Delhi,1819,4.1,"North Indian, Chinese, Continental, Asian"
 307374,AMA Cafe,India,New Delhi,3252,4.4,"Cafe, Juices"
@@ -8,7 +8,7 @@ Restaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rati
 18198449,Punjabi Angithi,India,New Delhi,3613,4.7,"North Indian, Chinese, Momos, Rolls, Fast Food"
 18382360,Local,India,New Delhi,5694,4.3,"North Indian, Continental, Momos"
 18273624,Cafeteria & Co.,India,New Delhi,4229,4.5,"Continental, Mexican, Fast Food"
-18466951,Jungle Jamboree,India,Noida,2832,4.5,"North Indian, Continental, Chinese, BBQ"
+18466951,NA,India,Noida,2832,4.5,"North Indian, Continental, Chinese, BBQ"
 306046,SodaBottleOpenerWala,India,Gurgaon,3818,4.2,"Parsi, North Indian, Maharashtrian, Beverages, Bakery"
 18337893,The Luggage Room Kitchen And Bar,India,New Delhi,1622,4.5,"Italian, Chinese, Continental"
 18518483,Echoes Hudson Lane,India,New Delhi,2534,4.6,"Cafe, American, Chinese, Continental, North Indian, Italian"
@@ -105,7 +105,7 @@ Restaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rati
 18538735,Over The Moon Brew Company,India,Hyderabad,2055,4.7,"Asian, Continental, North Indian, Chinese, Mediterranean"
 18470497,84 Anjuna Shack,India,Hyderabad,1779,4.1,"Cafe, Italian, French, Goan, Continental"
 18207447,Shah Ghouse Hotel & Restaurant,India,Hyderabad,11836,4.2,"Biryani, North Indian, Chinese"
-18544039,The Roastery Coffee House,India,Hyderabad,3258,4.8,NA
+18544039,The Roastery Coffee House,India,Hyderabad,3258,4.8,"American, Cafe, Continental"
 90499,Coffee Cup,India,Secunderabad,3766,4.6,"Cafe, Continental, Salad"
 18582430,Lucky Restaurant,India,Hyderabad,10298,4.2,"Biryani, North Indian, Chinese"
 18514668,Captain Cook,India,Hyderabad,9076,3.9,"Biryani, North Indian, Chinese"
@@ -1158,10 +1158,10 @@ Restaurant Id,Restaurant Name,Country,City,User Rating Votes,User Aggregate Rati
 7209209,Arabic Nights,NA,Dummy,0,0.0,"Turkish, Mediterranean"
 15557859,Domino's Pizza,NA,Dummy,0,0.0,"Pizza, Fast Food"
 15561694,Geometrico,NA,Dummy,0,0.0,Others
-15561685,NA,NA,Dummy,0,0.0,Healthy Food
+15561685,El Patio,NA,Dummy,0,0.0,Healthy Food
 7302200,Mamma Jamma,Brazil,Rio de Janeiro,12,4.5,Pizza
 7303710,Paris 6,Brazil,Rio de Janeiro,28,4.4,French
-7302898,NA,Brazil,NA,63,4.9,Brazilian
+7302898,Aprazível,Brazil,Rio de Janeiro,63,4.9,Brazilian
 7304801,Camarada Camarão,Brazil,Rio de Janeiro,5,4.1,"Brazilian, North Eastern, Seafood"
 7301965,Pérgula - Copacabana Palace,Brazil,Rio de Janeiro,3,4.2,International
 7304307,Confeitaria Colombo,Brazil,Rio de Janeiro,40,4.6,"Desserts, Cafe"

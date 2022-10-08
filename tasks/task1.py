@@ -1,16 +1,13 @@
 import pandas as pd
-import utils
+import json, utils
 
-def main():
+def main(rawData: json) -> None:
     # Reading csvfile using pandas and converting it into a dictionary
     # Format will be {country_code: country_name}
     countries = {}
     countryDf = pd.read_excel("inputs/Country-Code.xlsx")
     for i in countryDf.index:
         countries[countryDf["Country Code"][i]] = countryDf["Country"][i]
-
-    # Reading data from URL
-    rawData = utils.getJsonURL(utils.url)
     
     # List to keep track of restaurants
     restaurants = []
@@ -42,5 +39,7 @@ def main():
     restaurantsDf.to_csv("outputs/restaurants.csv", index=False) 
 
 if __name__ == "__main__":
-    main()
+    # Reading data from URL
+    rawData = utils.getJsonURL(utils.url)
+    main(rawData)
     

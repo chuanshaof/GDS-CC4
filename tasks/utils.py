@@ -10,7 +10,6 @@ sys.stdout.reconfigure(encoding='utf-8')
 url = "https://raw.githubusercontent.com/Papagoat/brain-assessment/main/restaurant_data.json"
 file = "inputs/restaurant_data.json"
 
-
 # Write to a CSV using a list of list
 # Remember to edit missing data into "NA"
 # https://docs.python.org/3/library/csv.html

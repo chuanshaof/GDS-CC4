@@ -4,7 +4,7 @@ import unittest
 # In both cases, the lone "Poor" rating has been manipulated
 # Further testing can be done by creating JSON files, but will take time
 class Task3Test(unittest.TestCase): 
-    # Aggregae rating for "Poor" changed from 2.2 to 0
+    # Aggregate rating for "Poor" changed from 2.2 to 0
     def test_missing_rating(self):
         rawData = utils.getJsonLocal("inputs/restaurant_missing_ratings.json")
         output = task3.main(rawData)

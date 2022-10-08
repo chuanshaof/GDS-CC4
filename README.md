@@ -14,7 +14,8 @@ Run tasks using the command of `python task#.py`, filling up "#" with the desire
 Alternatively, you can run this with any code editors using the "Run" button, or its equivalent.
 
 ## Running of tests
-Similar to running tasks, however, move to the tests directory with `cd tests` followed by `python test#.py`
+Similar to running tasks, however, move to the tests directory with `cd tests` followed by `python -m unittest` for all tests.\
+Alternatively for individual tests, `python -m unittest tests.test#`, replacing "#" with the desired task (1-3)
 
 # Assumptions, comments on data, and overview of code
 ## Assumptions made
@@ -35,7 +36,7 @@ Similar to running tasks, however, move to the tests directory with `cd tests` f
 ### Task 1
 Task 1 simply reads through a JSON file and navigating through it using the appropriate list traversal and dictionary keys. The below demonstrates the methods and reasoning behind the design of the code.
 1. Pandas is used for easy `.csv` and `.xlsx` management.
-2. `.get` method is used for missing data keys as per stated in assumption 2.
+2. `.get` method is used for missing data keys as per stated in assumption 
 
 ### Task 2
 Task 2 is similar to task 1 in getting the necessary information. However, it includes a condition to ensure that event is in April 2019.\
@@ -53,7 +54,20 @@ However, as per comment 4, the consideration has also been coded in and will nee
 The output of this task will be printed on the terminal, otherwise the `main()` function will return the dictionary of the data.\
 For the output printed on the terminal, the score will be rounded to 1 decimal place. 
 
+## Testing
 ### Test 1
-1. restaurant_data_edited is a downloaded JSON file with a mising key in the dictionary for "city". This is to ensure that files will be able to be read even if some data is missing. These data are then later filled with NA if they are missing.
+Test 1 tests for the flexibility of the code while dealing with JSON keys and missing values. This is the basic test to cover to ensure that the code works as expected. 
 
-`python -m unittest tests.test1`
+In this test, 2 files have been specifically modified to simulate the cases for missing keys and empty values. The expected outcome of the modified file is then used and asserted to match the actual outcome.
+
+Test 1 can be further enhanced with more edge cases using fuzzy testing.
+
+### Test 2
+Test 2 handles the functionality and ensures the edge cases of the dates. There are a total of 6 cases that was tested and asserted if the event has occured in April 2019 or not.
+
+In this test, missing keys and empty values has been omitted in the test due to time constraint. However, to do so, the same approach to test 1 can be taken to test comprehensively.
+
+### Test 3
+Test 3 ensures that the calculation for the average score has been done correctly and appropriately. For this test, the approach taken is to edit the file and expect for an outcome. 
+
+The simplest and easiest test to create was to edit the rating for "Poor" since it has only one count. This also helped to test edge cases, and managed to fix 1 bug regarding the division of 0.

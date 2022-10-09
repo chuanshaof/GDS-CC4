@@ -18,20 +18,22 @@ Similar to running tasks, however, move to the tests directory with `cd tests` f
 Alternatively for individual tests, `python -m unittest tests.test#`, replacing "#" with the desired task (1-3)
 
 # Summary and design considerations of deployment
-A simple way of deploying this app would be to deploy it with a serverless framework as Function as a Service (FaaS) on a service provider such as [Google Cloud Function](https://cloud.google.com/functions) or [AWS Lambda](https://aws.amazon.com/lambda/).
+A simple way of deploying this app would be to deploy it with a serverless framework as Function as a Service (FaaS) on service providers such as [Google Cloud Function](https://cloud.google.com/functions) or [AWS Lambda](https://aws.amazon.com/lambda/).
 
-However, without changes, the app currently is not flexible in the data that it can take in. Therefore, some (minimal) work will need to be done to allow the function to take in arguments and read other JSON objects with the same structure. 
+However, without changes, the app currently is inflexible in the data that it can take in. Therefore, some (minimal) work will need to be done to allow the function to take in arguments such as the ability to read from a URL or a JSON object. Other than this, the application would be ready to be deployed while satisfying specifically the tasks assigned.
 
-Specifically for task 2, there could be more arguments such as the start and end date of the event to be searched, making the function to cover a broader utility purpose. The function `in_april_2019` would also have to be slightly modified.
+The current functions could also be adapted to serve a broader utility purpose. For example, in task 2, there could be arguments taking in the start and end date, creating a search function, which only requires a small change in `in_april_2019`. 
 
-To further make the application more comprehensive and interactive as an end-to-end service, it can be deployed along with a GUI, built with Flask or other appropriate framework. These applications can then be deployed on services such as GCloud, AWS, Heroku, or any service of choice. 
+The benefits of creating this as a Cloud Function would be that it can be a microservice. There could be a larger encompassing GUI that calls on the function, making use of the functionalities of the code. This could also have benefits such as being easy to maintain and debug since it is small by itself.
 
-Additional services and microservices such as file upload can be further added on depending on the requirements of the application. These will require much more work than simply reading the data, including but not limited to creating a database bucket.
+Alternatively, the code could be integrated and built into an end-to-end service. This will require more functionalities such as add frontend, backend, security aspects. However, all of these will require much more time and effort, which includes but is not limited to creating databases, designing a GUI using Flask or other frameworks, and more. These applications can then be deployed on services such as [GCloud](https://cloud.google.com/appengine/docs/standard/python3/building-app), AWS, Heroku, or any service of choice. 
 
-Alternatively, the Cloud Function could act as a microservice, with a larger encompassing GUI that calls on the function, making it decoupled and easy to manage without complicating the current files and directories.
+In my opinion I would not recommend building it as an end-to-end service unless if the GUI provides more services than simply these tasks, otherwise there would be too much overhead to simply deploy.
 
+In conclusion, these tasks are considerably specific and limited in its range, thus, an ideal way to deploy this application would be as a Cloud Function, making it easy to use and easy to maintain.
 
 # Architecture Diagram
+![Architecture Diagram](cloud_architecture.png)
 
 
 # Assumptions, comments on data, and overview of code

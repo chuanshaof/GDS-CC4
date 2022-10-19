@@ -33,11 +33,11 @@ def main(rawData) -> None:
                 dtEventEnd = datetime.datetime.strptime(eventEnd, dateTimeFormat)
 
                 if in_april_2019(dtEventStart, dtEventEnd):
-                    events.append([restaurantId, restaurantName, eventId, eventTitle, eventStart, eventEnd, photoURLList])
+                    events.append([eventId, restaurantId, restaurantName, photoURLList, eventTitle, eventStart, eventEnd])
                 else:
                     continue
 
-    eventsDf = pd.DataFrame(events, columns=["event_id", "res_id", "res_name", "photos", "event_title", "start_date", "end_date"])
+    eventsDf = pd.DataFrame(events, columns=["Event Id", "Restaurant Id", "Restaurant Name", "Photo URL", "Event Title", "Event Start Date", "Event End Date"])
     eventsDf.replace("", "NA", inplace=True)
     eventsDf.to_csv("outputs/restaurant_events.csv", index=False)
 
@@ -53,7 +53,6 @@ def in_april_2019(startDate: datetime, endDate: datetime) -> bool:
         return True
     else:
         return False
-
 
 if __name__ == "__main__":
     # Reading data from URL
